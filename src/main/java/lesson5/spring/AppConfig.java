@@ -1,6 +1,7 @@
 package lesson5.spring;
 
 import javax.sql.DataSource;
+import lesson5.EventDAO;
 import lesson5.UserDAO;
 import org.postgresql.ds.PGSimpleDataSource;
 import org.springframework.context.annotation.Bean;
@@ -23,4 +24,9 @@ public class AppConfig {
   public UserDAO userDAO() {
       return  new UserDAO(dataSource());
     }
+
+    @Bean
+  public EventDAO eventDAO() {
+    return new EventDAO(dataSource());
+  }
 }
